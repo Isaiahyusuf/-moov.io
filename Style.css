@@ -1,1 +1,96 @@
+:root {
+  --bg-img: url('background.jpg');
+  --overlay-color: rgba(0,0,0,0.6);
+  --primary: #20c997;
+  --accent: #ffcc00;
+  --text: #ffffff;
+}
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: var(--bg-img) center/cover no-repeat fixed;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: var(--overlay-color);
+  z-index:1;
+}
+
+header {
+  z-index:2;
+  padding: 20px 0;
+}
+
+.logo {
+  max-width: 150px;
+  width: 80%;
+  animation: fadeInDown 1.2s ease-out;
+}
+
+.hero {
+  z-index:2;
+  text-align: center;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: var(--primary);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 10px 0 30px;
+}
+
+.ca {
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.socials img {
+  width: 40px;
+  filter: invert(100%);
+  transition: transform .3s;
+}
+
+.socials a:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 3rem; }
+  .hero p { font-size: 1rem; }
+  .socials img { width: 32px; }
+}
